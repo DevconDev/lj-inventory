@@ -28,7 +28,7 @@ end)
 
 -- Functions
 
-local function GetClosestVending()
+--[[local function GetClosestVending()
     local ped = PlayerPedId()
     local pos = GetEntityCoords(ped)
     local object = nil
@@ -41,7 +41,7 @@ local function GetClosestVending()
         end
     end
     return object
-end
+end]]
 
 local function DrawText3Ds(x, y, z, text)
 	SetTextScale(0.35, 0.35)
@@ -531,7 +531,29 @@ end)
 RegisterNetEvent('inventory:client:SetCurrentStash', function(stash)
     CurrentStash = stash
 end)
+RegisterNetEvent('vendingDrink:buy', function()
+    local ShopItems = {}
+    ShopItems.label = "Vending Machine"
+    ShopItems.items = Config.itemDrink
+    ShopItems.slots = #Config.itemDrink
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", ShopItems)
+end)
 
+RegisterNetEvent('vendingSnack:buy', function()
+    local snackItems = {}
+    snackItems.label = "Vending Machine"
+    snackItems.items = Config.itemSnack
+    snackItems.slots = #Config.itemSnack
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", snackItems)
+end)
+
+RegisterNetEvent('vendingCoffee:buy', function()
+    local coffeeItems = {}
+    coffeeItems.label = "Coffee Machine"
+    coffeeItems.items = Config.itemCoffee
+    coffeeItems.slots = #Config.itemCoffee
+    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Vendingshop_", coffeeItems)
+end)
 -- Commands
 
 RegisterCommand('closeinv', function()
@@ -543,7 +565,7 @@ RegisterCommand('inventory', function()
         if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] and not PlayerData.metadata["ishandcuffed"] and not IsPauseMenuActive() then
             local ped = PlayerPedId()
             local curVeh = nil
-            local VendingMachine = GetClosestVending()
+            --[[local VendingMachine = GetClosestVending()]]
 
             if IsPedInAnyVehicle(ped) then -- Is Player In Vehicle
                 local vehicle = GetVehiclePedIsIn(ped, false)
