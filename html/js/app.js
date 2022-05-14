@@ -474,6 +474,19 @@ function FormatItemInfo(itemData, dom) {
                 itemData.info.type +
                 "</span></p>"
             );
+        } else if (itemData.name == "rentcertificate") {
+            $(".item-info-title").html("<p>" + itemData.label + "</p>");
+            $(".item-info-description").html(
+                "<p><strong>Rentees First Name: </strong><span>" +
+                itemData.info.firstname +
+                "</span></p><p><strong>Rentees Last Name: </strong><span>" +
+                itemData.info.lastname +
+                "</span></p><p><strong>Vehicle Model: </strong><span>" +
+                itemData.info.vehicle +
+                "</span></p><p><strong>Vehicle License Plate: </strong><span>" +
+                itemData.info.vehicleplate +
+                "</span></p>"
+            );
         } else if (itemData.name == "weaponlicense") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
@@ -617,6 +630,42 @@ function FormatItemInfo(itemData, dom) {
                 itemData.info.worth +
                 "</span></p>"
             );
+        } else if (itemData.name == "redwoodcigs") { // Cigarette Pack
+                $(".item-info-title").html("<p>" + itemData.label + "</p>");
+                $(".item-info-description").html(
+                    "<p>" + itemData.info.uses + " cigarettes left.</p>"
+                );
+        } else if (itemData.name == "prescriptionpad") {
+                $(".item-info-title").html("<p>" + itemData.label + "</p>");
+                $(".item-info-description").html(
+                    "<p><strong>Prescribing Physician: </strong><span>" +
+                    itemData.info.doctor +
+                    "</span></p><p><strong>Pages Torn Out: </strong><span>" +
+                    itemData.info.written +
+                    "</span></p><p><strong>Pad Issued: </strong><span>" +
+                    itemData.info.dateissued +
+                    "</p>"
+                );
+            } else if (itemData.name == "prescription") {
+                $(".item-info-title").html("<p>" + itemData.label + "</p>");
+                $(".item-info-description").html(
+                    "<p><strong>Prescribing Physician: </strong><span>" +
+                    itemData.info.doctor +
+                    "</span></p><p><strong>Date: </strong><span>" +
+                    itemData.info.date +
+                    "</span></p><p><strong>Patient Name: </strong><span>" +
+                    itemData.info.patient +
+                    "</span></p><p><strong>Refills: </strong><span>" +
+                    itemData.info.refills +
+                    "</span></p><p><strong>Refilled: </strong><span>" +
+                    itemData.info.refilled +
+                    "</span></p><p><strong>RX: </strong><span>" +
+                    itemData.info.rx +
+                    "</span></p><p><strong>Directions: </strong><span>" +
+                    itemData.info.directions +
+                    "</p>"
+                );
+
         } else if (itemData.name == "visa" || itemData.name == "mastercard") {
             $(".item-info-title").html('<p>'+itemData.label+'</p>')
             var str = ""+ itemData.info.cardNumber + "";
